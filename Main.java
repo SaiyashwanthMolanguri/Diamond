@@ -90,6 +90,30 @@ class Diamond{
 	Deck playerDeck ,computerDeck , diamondDeck;
 	String winner;
 	Scanner input = new Scanner(System.in);
+	static HashMap<Integer ,Integer> move;
+	
+	static{
+		
+		move = new HashMap<Integer ,Integer>();
+		
+		move.put(1,2);
+		move.put(2,3);
+		move.put(3,4);
+		move.put(4,6);
+		move.put(5,7);
+		
+		move.put(6,8);
+		move.put(7,10);
+		move.put(8,11);
+		move.put(9,12);
+		move.put(10,13);
+		
+		move.put(11,1);
+		move.put(12,5);
+		move.put(13,9);
+	
+	}
+	
 	
 	Diamond(){
 		
@@ -101,33 +125,6 @@ class Diamond{
 	}
 	
 	int decideComputerMove(int c){
-		
-		/*if(1<=c && c<=7)
-			return c+2;
-		else if(c == 12 )
-			return 2;
-		else if(8<=c && c<=11)
-			return c+2;
-		else
-			return 1;*/
-		HashMap<Integer ,Integer> move = new HashMap<Integer ,Integer>();
-		
-		move.put(1,4);
-		move.put(2,5);
-		move.put(3,6);
-		move.put(4,7);
-		move.put(5,8);
-		
-		move.put(6,4);
-		move.put(7,10);
-		move.put(8,11);
-		move.put(9,12);
-		move.put(10,13);
-		
-		move.put(11,1);
-		move.put(12,2);
-		move.put(13,3);
-		
 		
 		return move.get(c);
 		
