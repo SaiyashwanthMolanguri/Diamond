@@ -102,14 +102,14 @@ class Diamond{
 	
 	int decideComputerMove(int c){
 		
-		if(1<=c && c<=6)
-			return c+1;
-		else if(c == 7 )
-			return 1;
-		else if(8<=c && c<=12)
-			return c+1;
+		if(1<=c && c<=7)
+			return c+2;
+		else if(c == 12 )
+			return 2;
+		else if(8<=c && c<=11)
+			return c+2;
 		else
-			return 8;
+			return 1;
 		
 	}
 	
