@@ -76,7 +76,8 @@ class Deck{
 		String printDeck="";
 		
 		for(Cards c: deck)
-			printDeck += c;
+			if(thrown[c.getCardNumber()] == false)
+					printDeck += c;
 		
 		return printDeck;
 	}
@@ -99,17 +100,16 @@ class Diamond{
 		Collections.sort(computerDeck.deck);
 	}
 	
-	int decideComputerMove(){
+	int decideComputerMove(int c){
+		if(1<=c && c<=6)
+			return c+1;
+		else if(c == 7 )
+			return 1;
+		else if(8<=c && c<=12)
+			return c+1;
+		else
+			return 8;
 		
-		Cards returnCard=null;
-		
-		for(Cards c:computerDeck.deck)
-			if(computerDeck.thrown[c.getCardNumber()] == false){
-				returnCard = c;
-				break;
-			}
-			
-		return returnCard.getCardNumber();
 	}
 	
 	
@@ -120,12 +120,12 @@ class Diamond{
 		for(int moves=1;moves<=13;++moves)
 		{
 				System.out.println("\n\nOkay , Now throw your cards when the topmost diamond card is  : " + diamondDeck.deck.get(moves-1)+"\n\n");
-				System.out.println("You have these cards left . Among them, choose one : ");
+				System.out.println("You have these cards left . Among them, choose one and enter an integer correspondingly: ");
 				System.out.println(playerDeck);
 				System.out.println("\n\n_________________ YOUR MOVE "+ moves +"_________________");
 				
 				int c = input.nextInt();
-				int d = decideComputerMove();
+				int d = decideComputerMove(diamondDeck.deck.get(moves-1).getCardNumber());
 				
 				playerDeck.throwCard(c);
 				computerDeck.throwCard(d);
