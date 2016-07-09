@@ -101,14 +101,15 @@ class Diamond{
 	}
 	
 	int decideComputerMove(int c){
-		if(1<=c && c<=7)
-			return c+2;
-		else if(c == 12 )
-			return 2;
-		else if(8<=c && c<=11)
-			return c+2;
-		else
+		
+		if(1<=c && c<=6)
+			return c+1;
+		else if(c == 7 )
 			return 1;
+		else if(8<=c && c<=12)
+			return c+1;
+		else
+			return 8;
 		
 	}
 	
@@ -131,18 +132,22 @@ class Diamond{
 				computerDeck.throwCard(d);
 				
 				System.out.println("Computer moves "+ new Cards(d,"SPADES"));
+				System.out.print("RESULT : " );
 				
-				if(c > d)
+				if(c > d){
 					playerScore += diamondDeck.deck.get(moves-1).getCardNumber();
-				else if (c < d)
+					System.out.println("Player Wins. Current Score is \nPlayer = "+playerScore+" and Computer = " + computerScore);
+				}
+				else if (c < d){
 					computerScore += diamondDeck.deck.get(moves-1).getCardNumber();
-				else{
+					System.out.println("Computer Wins. Current Score is \nPlayer = "+playerScore+" and Computer = " + computerScore);
+				}else{
 					playerScore += (diamondDeck.deck.get(moves-1).getCardNumber())/2;
 					computerScore += (diamondDeck.deck.get(moves-1).getCardNumber())/2;
+					System.out.println("The game is draw. Current Score is \nPlayer = "+playerScore+" and Computer = " + computerScore);
 				}
 				
-				System.out.println("_________________ RESULT OF MOVE "+moves+"_____________________");
-				System.out.println("Computer Wins. Current Score is \nPlayer = "+playerScore+" and Computer = " + computerScore);
+				
 		}
 		
 		System.out.println("\n\n_________________ FINAL RESULT_________________");
